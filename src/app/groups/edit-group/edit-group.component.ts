@@ -102,7 +102,11 @@ export class EditGroupComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       this.router.navigate(['../../'], { relativeTo: this.route });
     } else {
-      this.router.navigate(['../'], { relativeTo: this.route });
+      if(this.guests.length === 0){
+        this.router.navigate(['guests', 'new'])
+      }else{
+        this.router.navigate(['../'], { relativeTo: this.route });
+      }
     }
   }
 
