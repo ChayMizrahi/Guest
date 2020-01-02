@@ -1,0 +1,11 @@
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+.childrenInput.ng-invalid{
+    border: 1px solid red;
+}
+
+.errorMessage{
+    color: red;
+}

@@ -1,0 +1,45 @@
+<div class="row m-5">
+    <div class="col-12 text-center">
+
+        <h1> {{loginMode ? 'Login' : 'Sign-up'}}</h1>
+        <p> {{loginMode ? 'Sign in' : 'Sign-up'}} and manage the list of invitees for your upcoming event </p>
+        <hr>
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+            {{error}}
+        </div>
+
+        <app-loading *ngIf="isLoading"></app-loading>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="row form-group">
+
+                <div class="col-12 col-md-6 m-auto">
+                    <div class="row">
+                        <div class="col-12 p-2">
+                            <label for="email"> Email </label>
+                            <input id="email" type="email" class="form-control" formControlName="email">
+                        </div>
+
+                        <div class="col-12 p-2">
+                            <label for="password"> Password </label>
+                            <input id="password" type="password" class="form-control" formControlName="password">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+                        {{loginMode ? 'Login' : 'Sign-up'}} </button>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-link mx-1" type="button" (click)="onSwitchMode()">
+                        {{loginMode ? ' Not registered?' : 'Already registered?' }} </button>
+                </div>
+                   
+            </div>
+
+        </form>
+    </div>
+</div>

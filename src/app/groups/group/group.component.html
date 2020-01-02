@@ -1,0 +1,7 @@
+<div class="group-card" [ngStyle]="{ 'background-color': group.color}">
+    {{group.name}} ({{GuestGroupLength}})
+    <hr class="m-0 mt-1">
+    <button class="btn" (click)="onInfoGroup()"> <i class="fas fa-list-ol"></i> </button>
+    <button class="btn" (click)="onRemoveGroup()"> <i class="fas fa-trash-alt"></i> </button>
+    <button class="btn" (click)="onEditGroup()"> <i class="fas fa-edit"></i> </button>
+</div>

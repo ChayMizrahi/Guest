@@ -1,0 +1,32 @@
+<div class="text-center" *ngIf="!guests || guests?.length === 0">
+    <h2> You don't add any guest to your guests list yet.. </h2>
+    <p> Add the first one right now </p>
+    <img src='./assets/images/Checklist.png'>
+</div>
+
+<div class="text-center m-auto">
+    <table class="table table-striped table-sm text-center border border-dark m-auto" *ngIf="guests?.length > 0 ">
+        <thead>
+            <tr class="bg-dark text-white">
+                <th scope="col"> Main guest </th>
+                <th scope="col">Total guests</th>
+                <th scope="col" class='display-only-web'>Group</th>
+                <th scope="col">Info</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let guest of guests; let i = index">
+                <td class="word-break-all" >{{guest.name}}  </td>
+                <td class="p-0"> {{guest.companions ? guest.companions.length+1 : 0}}</td>
+                <td class="display-only-web p-0">{{guest.group}}</td>
+                <td class="p-0"> <button class="btn" (click)="onInfoGuest(i)"> <i class="fas fa-info"></i> </button>
+                </td>
+                <td class="p-0"> <button class="btn" (click)="onUpdateGuest(i)"><i class="fas fa-edit"></i></button>
+                </td>
+                <td class="p-0"> <button class="btn" (click)="onRemoveGuest(i)"><i class="fas fa-trash-alt"></i></button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

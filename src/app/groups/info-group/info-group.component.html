@@ -1,0 +1,27 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+
+    <h1 class="m-3"> '{{group.name}}' Guests:</h1>
+
+    <div *ngIf="customGuests?.length === 0">
+        <p> No guests are listed in this group.</p>
+    </div>
+
+    <div *ngIf="customGuests?.length > 0">
+        <table class="table">
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let g of customGuests; let i = index">
+                <th class="py-2">{{i+1}}</th>
+                <td class="py-2" class="word-break-all">{{g.name}}</td>
+                <td>{{g.status}}</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <button type="button" class="btn btn-danger m-2" (click)="onClose()"> Cancel </button>
+</div>
