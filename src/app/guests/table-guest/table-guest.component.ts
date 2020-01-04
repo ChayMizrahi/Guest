@@ -42,6 +42,10 @@ export class TableGuestComponent implements OnInit, OnDestroy {
     return total;
   }
 
+  onAddGuest(){
+    this.router.navigate(['guests', 'new']);
+  }
+
   onInfoGuest(i: number) {
     this.router.navigate(['guests', +i]);
   }

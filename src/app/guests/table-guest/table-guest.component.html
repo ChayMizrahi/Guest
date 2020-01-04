@@ -1,7 +1,7 @@
 <div class="text-center" *ngIf="!guests || guests?.length === 0">
-    <h2> You don't add any guest to your guests list yet.. </h2>
+    <h2> You didn't add any guests to your guest list.. </h2>
     <p> Add the first one right now </p>
-    <img src='./assets/images/Checklist.png'>
+    <button class="btn btn-outline-dark" (click)="onAddGuest()"> Add first guest </button>
 </div>
 
 <div class="text-center m-auto">
@@ -18,14 +18,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let guest of guests; let i = index">
-                <td class="word-break-all" >{{guest.name}}  </td>
+                <td class="word-break-all">{{guest.name}} </td>
                 <td class="p-0"> {{guest.companions ? guest.companions.length+1 : 0}}</td>
                 <td class="display-only-web p-0">{{guest.group}}</td>
                 <td class="p-0"> <button class="btn" (click)="onInfoGuest(i)"> <i class="fas fa-info"></i> </button>
                 </td>
                 <td class="p-0"> <button class="btn" (click)="onUpdateGuest(i)"><i class="fas fa-edit"></i></button>
                 </td>
-                <td class="p-0"> <button class="btn" (click)="onRemoveGuest(i)"><i class="fas fa-trash-alt"></i></button> </td>
+                <td class="p-0"> <button class="btn" (click)="onRemoveGuest(i)"><i
+                            class="fas fa-trash-alt"></i></button> </td>
             </tr>
         </tbody>
     </table>
